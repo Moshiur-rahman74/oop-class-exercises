@@ -1,34 +1,7 @@
-# Base Class: Shape
-class Shape:
-    def __init__(self, name):
-        self.name = name
+# Lambda function
+square_formula = lambda a, b: a**2 + b**2 + 2 * a * b
 
-    def get_name(self):
-        return self.name
-
-    def display_info(self):
-        print(f"Shape: {self.name}")
-
-
-# Derived Class: Rectangle
-class Rectangle(Shape):
-    def __init__(self, length, width):
-        super().__init__("Rectangle")
-        self.length = length
-        self.width = width
-
-    def area(self):
-        return self.length * self.width
-
-    def perimeter(self):
-        return 2 * (self.length + self.width)
-
-    def display_info(self):
-        super().display_info()
-        print(f"Length: {self.length}, Width: {self.width}")
-        print(f"Area: {self.area()}, Perimeter: {self.perimeter()}")
-
-
-# Example Usage
-rectangle = Rectangle(5, 3)
-rectangle.display_info()
+a = int(input("Enter value for a: "))
+b = int(input("Enter value for b: "))
+result = square_formula(a, b)
+print("The result of (a + b)^2 using lambda is:", result)

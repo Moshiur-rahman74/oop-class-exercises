@@ -1,27 +1,21 @@
-# Base Class: Product
-class Product:
-    def __init__(self, name, price):
-        self.name = name
-        self.price = price
+class Department:
+    def display_name(self):
+        print("Department: Generic Department")
 
-    def display_detail(self):
-        print(f"Name: {self.name}, Price: {self.price}")
+class Teacher(Department):
+    def display_name(self):
+        print("Department: Teaching Staff")
 
+class Author(Department):
+    def display_name(self):
+        print("Department: Writing Team")
 
-# Derived Class: ElectronicProduct
-class ElectronicProduct(Product):
-    def __init__(self, name, price, warranty):
-        super().__init__(name, price)
-        self.warranty = warranty
+# Demonstrating runtime polymorphism
+def show_department(department):
+    department.display_name()
 
-    def display_detail(self):
-        super().display_detail()
-        print(f"Warranty: {self.warranty} years")
+teacher = Teacher()
+author = Author()
 
-
-# Example Usage
-product = Product("Generic Item", 50)
-product.display_detail()
-
-electronic = ElectronicProduct("Smartphone", 699, 2)
-electronic.display_detail()
+show_department(teacher)  # Output: Department: Teaching Staff
+show_department(author)   # Output: Department: Writing Team
